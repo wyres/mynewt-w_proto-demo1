@@ -1,0 +1,77 @@
+#
+# Kerlink (support@kerlink.com)
+#
+syscfg.defs:
+    RX_THREAD_PRIORITY:
+        description: 'Priority of the rx_thread task'
+        value: 101
+    RX_THREAD_STACK_SIZE:
+        description: 'Stack size of the rx_thread task'
+        value: (OS_STACK_ALIGN(512))
+    TX_THREAD_PRIORITY:
+        description: 'Priority of the tx_thread task'
+        value: 100
+    TX_THREAD_STACK_SIZE:
+        description: 'Stack size of the tx_thread task'
+        value: (OS_STACK_ALIGN(512))
+    # loraapp task must be lower prio (higher value) than the lorawan api tasks (see below)
+    LORAAPP_TASK_PRIO:
+        value: 102
+    LORAAPP_STACK_SIZE:
+        description: 'Stack size of the lora app task'
+        value: (OS_STACK_ALIGN(256))    
+    STATE_MACH_TASK_PRIO:
+        value: 20
+    STATE_MACH_STACK_SIZE:
+        description: 'Stack size of the state machine task'
+        value : (OS_STACK_ALIGN(256))
+        
+        
+    MAX_LEDS: 
+        value: 2
+    LEDMGR_TASK_PRIO: 
+        value: 30
+
+    MAX_GPIOS: 
+        value: 6
+
+    MAX_LPCBFNS: 
+        value: 2
+
+    LORA_REGION: 
+        description: lora freq region to use - 5 is EU868
+        value: 5
+
+syscfg.vals:
+
+
+    LORAWAN_REGION_EU868: 1
+    LORAWAN_ACTIVATION_ABP: 0
+    LORAWAN_ACTIVATION_OTAA: 1
+    LORAWAN_ADR_ENABLE: 0
+    LORAWAN_CERTIF_ENABLE: 0
+    LORAWAN_SE_SOFT: 1
+
+
+    LORAWAN_API_DEFAULT_MCPS_CONFIRMED: 1
+    LORAWAN_API_DEFAULT_MCPS_UNCONFIRMED: 0    
+    LORAWAN_API_TRACE_ACTIVATION: 1
+    LORAWAN_API_DEFAULT_NB_TRIALS: 2
+    LORAWAN_API_DEFAULT_DR: DR_0
+    
+    # Offset timing (ms) & RxDuration (ms) for the radio setup
+    SX127X_RADIO_WAKEUP_TIME: 10
+    SX127X_RADIO_MIN_RX_DURATION: 1000
+
+    OS_MAIN_STACK_SIZE: 512
+    SHELL_TASK: 0
+    SHELL_PROMPT_MODULE: 0
+
+    CONSOLE_UART: 1
+    CONSOLE_UART_BAUD: 115200
+    CONSOLE_UART_TX_BUF_SIZE: 256
+
+    LORAWAN_TASK_PRIO: 10
+    LORAWAN_API_TASK_PRIO: 11
+
+    
